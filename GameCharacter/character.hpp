@@ -16,6 +16,7 @@ private:
 public:
     Character(const std::string& name, int health, int power);
     void addSkill(const std::string& skillName, int level);
+    void displayCharacter() const;
 };
 
 #endif

@@ -10,6 +10,7 @@ private:
 
 public:
     void addCharacter(const Character& character);
+    void displayGameCharacters() const;
 
 };
 

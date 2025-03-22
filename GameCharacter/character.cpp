@@ -15,3 +15,11 @@ void Character::addSkill(const std::string &skillName, int level)
     SkillLevels.push_back(level);
 }
 
+void Character::displayCharacter() const
+{
+    std::cout << "Name: " << Name << "\nHealth: " << Health << "\nPower: " << Power << "\nSkills:\n";
+    for (size_t i = 0; i < SkillNames.size(); i++)
+    {
+        std::cout << "- " << SkillNames[i] << ": Level " << SkillLevels[i] << "\n";
+    }
+}

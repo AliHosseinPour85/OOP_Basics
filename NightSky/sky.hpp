@@ -1,20 +1,19 @@
 #ifndef SKY_HPP
 #define SKY_HPP
 
-#include "star.hpp"
 #include <vector>
-#include <iostream>
+#include "star.hpp"
 
 class Sky {
 private:
-    std::vector<Star> stars; 
-    int width; 
-    int height; 
+    std::vector<Star> stars;  
 
 public:
-    Sky(int width, int height);
+    void addStar(const Star& star);
 
-    void add_star(const Star& star);
+    void display() const;
+
+    void render() const;
 };
 
 #endif

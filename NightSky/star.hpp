@@ -1,21 +1,20 @@
 #ifndef STAR_HPP
 #define STAR_HPP
 
-#include <string>
+#include <raylib.h>
 
 class Star {
 private:
-    int x; 
-    int y; 
-    int brightness; 
-    std::string color; 
-
+    int x, y;          
+    float brightness;  
+    Color color;       
 public:
-    Star(int x, int y, int brightness, const std::string& color);
+    Star(int x, int y, float brightness, Color color);
 
-    
-    int get_x() const;
-    int get_y() const;
+    int getX() const;
+    int getY() const;
+    float getBrightness() const;
+    Color getColor() const;
 
 };
 

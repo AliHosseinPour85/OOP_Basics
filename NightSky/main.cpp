@@ -21,7 +21,5 @@ int main() {
 
     CloseWindow();
 
-    sky.display();
-
     return 0;
 }

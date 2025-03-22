@@ -11,8 +11,6 @@ private:
 public:
     void addStar(const Star& star);
 
-    void display() const;
-
     void render() const;
 };
 

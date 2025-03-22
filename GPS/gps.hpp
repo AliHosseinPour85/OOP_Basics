@@ -1,6 +1,7 @@
 #ifndef GPS_HPP
 #define GPS_HPP
 
+#include <iostream>
 
 class Position
 {

@@ -1,4 +1,5 @@
 #include <gps.hpp>
+#include <fstream>
 
 Position::Position(double lat, double lon)
 {
@@ -20,5 +21,20 @@ Position::Position(double lat, double lon)
 }
 
 Position::~Position(){
-    
+    if (n > 0)
+    {
+        std::ofstream file("log.txt");
+        if (file.is_open())
+        {
+            file << "Last latitude : " << latitude << '\t' << "Last longitude : " << longitude << std::endl;
+            file.close();
+            std::cout << "File saved successfully to " << "log.txt" << std::endl;
+        }
+        else
+        {
+            std::cerr << "Error: Could not open file " << "log.txt" << " for writing." << std::endl;
+        }
+        std::cout << "Last latitude : " << latitude << '\t' << "Last longitude : " << longitude << std::endl;
+        n = 0;
+    }
 }

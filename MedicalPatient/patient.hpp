@@ -2,6 +2,7 @@
 #define PATIENT_HPP
 
 #include <string>
+#include <vector>
 
 class Patient
 {
@@ -24,7 +25,9 @@ public:
     int getRespiratoryRate() const;
     int getBloodPressure() const;
     int getAge() const;
-    
+
+    std::string serialize() const;
+    static Patient deserialize(const std::string &data);
 };
 
 #endif

@@ -2,7 +2,6 @@
 #define PATIENT_HPP
 
 #include <string>
-#include <vector>
 
 class Patient
 {

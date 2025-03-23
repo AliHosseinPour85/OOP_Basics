@@ -10,10 +10,72 @@ std::string Patient::xorCipher(const std::string& data, char key) {
     return result;
 }
 
-Patient::Patient(const std::string& name, float temp, int hr, int rr, int bp, int age)
-    : name(name), bodyTemperature(temp), heartRate(hr), respiratoryRate(rr), bloodPressure(bp), age(age) {}
+Patient::Patient(const std::string& name, float temp, int hr, int rr, int bp, int a)
+    : name(name), bodyTemperature(temp), heartRate(hr), respiratoryRate(rr), bloodPressure(bp), age(a) {
+    while (temp < 0)
+    {
+        std::cout << "Enter correct Body Temperature!!!!" << std::endl;
+        std::cin >> temp ;
+        bodyTemperature = temp ;
+    }
 
+    while (hr < 0)
+    {
+        std::cout << "Enter correct Heart Rate!!!!" << std::endl;
+        std::cin >> hr ;
+        heartRate = hr ;
+    }
 
+    while (rr < 0){
+        std::cout << "Enter correct Respiratory Rate!!!!" << std::endl;
+        std::cin >> rr ;
+        respiratoryRate = rr ;
+    }
+
+    while (bp < 0){
+        std::cout << "Enter correct Blood Pressure!!!!" << std::endl;
+        std::cin >> bp ;
+        bloodPressure = bp ;
+    }
+
+    while (a < 0){
+        std::cout << "Enter correct Age!!!!" << std::endl;
+        std::cin >> a ;
+        age = a ;
+    }
+    
+    if (!isTemperatureNormal()) {
+        std::cerr << "Warning: Patient " << name << " has abnormal Body Temprature!" << std::endl;
+    }
+    if (!isHeartRateNormal()) {
+        std::cerr << "Warning: Patient " << name << " has abnormal Heart Rate!" << std::endl;
+    }
+    if (!isRespiratoryRateNormal()) {
+        std::cerr << "Warning: Patient " << name << " has abnormal Respiratory Rate!" << std::endl;
+    }
+    if (!isBloodPressureNormal()) {
+        std::cerr << "Warning: Patient " << name << " has abnormal Blood Pressure!" << std::endl;
+    }
+}
+
+bool Patient::isTemperatureNormal() const {
+    return bodyTemperature >= 36.0 && bodyTemperature <= 37.5;
+}
+
+bool Patient::isHeartRateNormal() const {
+    return heartRate >= 60 && heartRate <= 100;
+}
+
+bool Patient::isRespiratoryRateNormal() const {
+    if (age < 1) return respiratoryRate >= 30 && respiratoryRate <= 50; 
+    if (age >= 1 && age <= 5) return respiratoryRate >= 20 && respiratoryRate <= 30; 
+    if (age >= 6 && age <= 12) return respiratoryRate >= 15 && respiratoryRate <= 25;
+    return respiratoryRate >= 12 && respiratoryRate <= 20; 
+}
+
+bool Patient::isBloodPressureNormal() const {
+    return bloodPressure >= 80 && bloodPressure <= 120;
+}
 
 std::string Patient::getName() const { return name; }
 float Patient::getBodyTemperature() const { return bodyTemperature; }

@@ -26,6 +26,11 @@ public:
     int getBloodPressure() const;
     int getAge() const;
 
+    bool isTemperatureNormal() const;
+    bool isHeartRateNormal() const;
+    bool isRespiratoryRateNormal() const;
+    bool isBloodPressureNormal() const;
+
     std::string serialize() const;
     static Patient deserialize(const std::string &data);
 };

@@ -6,9 +6,9 @@ int main() {
     
     std::time_t Now = time(nullptr);
     
-    calendar.add_event("playing", Now , Now + 8400);
-    calendar.add_event("Meeting", Now , Now + 8);  
-    calendar.add_event("Lunch", Now , Now + 3600);  
+    calendar.add_event("playinggggg", Now , Now + 8400 , Now);
+    calendar.add_event("Meetingggg", Now + 100 , Now + 8 , Now);  
+    calendar.add_event("Lunchhhhh", Now , Now + 3600 , Now);  
 
     calendar.load_file();
     

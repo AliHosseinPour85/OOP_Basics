@@ -11,7 +11,7 @@ private:
     static int n ;
 public:
     
-    void add_event(const std::string& name, std::time_t start, std::time_t end);
+    void add_event(const std::string& name, std::time_t start, std::time_t end, std::time_t Now);
     void refresh();
     void Delete_event(int);
     void save_events();

@@ -6,8 +6,17 @@
 
 int Calendar::n = 0;
 
-void Calendar::add_event(const std::string &name, std::time_t start, std::time_t end)
+void Calendar::add_event(const std::string &name, std::time_t start, std::time_t end, std::time_t Now)
 {
+    while (start < Now)
+    {
+        std::time_t s;
+        std::cerr << "Enter correct start time(second) : " << std::endl ;
+        std::cin >> s;
+        start = Now + s;
+    }
+    
+    
     for (const auto &event : events)
     {
         if ((start < event.end_time && end > event.start_time))
